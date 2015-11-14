@@ -1,34 +1,20 @@
 ---
 layout: page
-title: About the Jekyll Theme
+title: About Me
 image:
   feature: abstract-5.jpg
   credit: dargadgetz
   creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 comments: false
-modified: 2014-12-24
+modified: 2015-11-14
 ---
 
-They say three times the charm, so here is another free responsive Jekyll blog theme for you. I've learned a ton since open sourcing my first two themes [on Github](http://github.com/mmistakes), and wanted to try a few new things this time around. 
+From hand optimized assembly programming for embedded micro controllers, to operations architecture, to graphic arts.  I have worked professionally in many roles of the IT industry.  I feel I am a jack in all trades, and a master in whatever I have been working on for the past month.  Many things overlap, and knowledge and technology from one branch can be brought into others to bring unique solutions to some of the cooler problems.
 
-If you've used any of [my other themes](http://mademistakes.com/work/jekyll-themes/) most of this should be familiar territory...
+## What I can bring to the table:
 
-## What HPSTR brings to the table:
-
-* Responsive templates for post, page, and post index `_layouts`. Looks great on mobile, tablet, and desktop devices.
-* Gracefully degrads in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.  
-* Modern and minimal design.
-* Sweet animated menu.
-* Background image support.
-* Readable typography to make your words shine.
-* Support for large images to call out your favorite posts.
-* Built-in support for Sass courtesy of Jekyll 2.x.
-* Optional [Disqus](http://disqus.com) comments.
-* Simple and clear permalink structure[^1].
-* [Open Graph](https://developers.facebook.com/docs/opengraph/) and [Twitter Cards](https://dev.twitter.com/docs/cards) support for a better social sharing experience.
-* Simple [custom 404 page]({{ site.url }}/404.html) to get you started.
-* Stylesheets for Pygments and Coderay [syntax highlighting]({{ site.url }}/code-highlighting-post/) to make your code examples look snazzy.
-
-<div markdown="0"><a href="{{ site.url }}/theme-setup/" class="btn btn-info">Theme Setup</a> <a href="https://github.com/mmistakes/hpstr-jekyll-theme" class="btn btn-success">Download HPSTR</a></div>
-
-[^1]: Example: *domain.com/category-name/post-title*
+* Over 30 years experience being immersed in whatever technology I can get my hands on.  This is my career, and my passion.  Having seen many problems and taken many paths develops wisdom that can help guide my planning and development of new projects that 'feels right', and avoiding pitfalls that will get us later down the road.
+* Mediator skills to bring diverse teams and viewpoints together into a working solution for all
+* Experience teaching technology to all ages and backgrounds has givin me the skills to expain technical problems and solutions to those not in the field.
+* Pride in finding technically elegant and simple solutions.
+* Ability to sometimes make people laugh so hard they can't breathe

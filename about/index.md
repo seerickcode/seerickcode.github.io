@@ -13,7 +13,7 @@ From hand optimized assembly programming for embedded micro controllers, to oper
 
 ## What I can bring to the table:
 
-* Over 30 years experience being immersed in whatever technology I can get my hands on.  This is my career, and my passion.  Having seen many problems and taken many paths develops wisdom that can help guide my planning and development of new projects that 'feels right', and avoiding pitfalls that will get us later down the road.
+* Over 30 years experience being immersed in whatever technology I can get my hands on.  This is my career, and my passion.  Having seen many problems and taken many paths develops wisdom that can help guide my planning and development on new projects that 'feels right', and instinctivly avoid pitfalls that might have bitten us later.
 * Mediator skills to bring diverse teams and viewpoints together into a working solution for all
 * Experience teaching technology to all ages and backgrounds has givin me the skills to expain technical problems and solutions to those not in the field.
 * Pride in finding technically elegant and simple solutions.

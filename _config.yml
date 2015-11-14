@@ -1,6 +1,6 @@
-title:            Site Title
-description:      Describe your website here.
-disqus_shortname: hpstrtheme
+title:            See Dick Code
+description:      Stuff I Do - Dev / Ops
+disqus_shortname: seedickcode
 reading_time:     true
 words_per_minute: 200
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
@@ -9,14 +9,14 @@ url:
 
 # Owner/author information
 owner:
-  name:           Your Name
+  name:           Richard Clark
   avatar:         avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  bio:            "Works with computers. Software Development and Operations Architechture. Jack of All, Master of whatever I have been working on the past two weeks."
+  email:          dude@seedickcode.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        
+  twitter:        seedickcode
   facebook:       
-  github:         
+  github:         seedickcode 
   stackexchange:  
   linkedin:       
   instagram:      

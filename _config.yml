@@ -1,66 +1,41 @@
-title:            See Dick Code
-description:      Stuff I do.
-disqus_shortname: seedickcode
+title:            Site Title
+description:      Describe your website here.
+disqus_shortname: hpstrtheme
 reading_time:     true
 words_per_minute: 200
-logo:             images/logo.png
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
-# url: http://aronbordin.com/neo-hpstr-jekyll-theme
-
-menu:
-  - title: 'Home'
-    url: '/'
-  - title: 'About'
-    url: '/about'
-  - title: 'Tags'
-    url: '/tags'
-  - title: 'Categories'
-    url: '/categories'
-    type: 'categories'
-  - title: 'Favorites'
-    url: '#'
-    submenu:
-      - title: 'highlighter'
-        url: '/code-highlighting-post/'
-      - title: 'intro'
-        url: '/readability-post/'
+url:
 
 # Owner/author information
 owner:
-  name:           Richard Clark
-  site:           http://seedickcode.com
-  avatar:         images/avatar.jpg
-  bio:            "Works with computers.."
-  email:          dude@seedickcode.com
+  name:           Your Name
+  avatar:         avatar.jpg
+  bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
+  email:          you@email.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter: seedickcode
-  facebook:
-  github: seedickcode
-  stackexchange:
-  linkedin:
-  instagram:
-  flickr:
-  tumblr:
-  # google plus id, include the '+', eg +AronBordin
-  # google_plus:    +yourid
+  twitter:        
+  facebook:       
+  github:         
+  stackexchange:  
+  linkedin:       
+  instagram:      
+  flickr:         
+  tumblr:         
+  # google plus id, include the '+', eg +mmistakes
+  google_plus:    +yourid
 
-social:
-  - title: "github"
-    url: "https://github.com/seedickcode"
-  - title: "linkedin"
-    url: "https://ca.linkedin.com/in/cybrick"
 # Background image to be tiled on all pages
-background:
+background: 
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:
-google_verify:
+google_analytics:   
+google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+bing_verify:         
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/Vancouver
+timezone:    America/New_York
 future:      true
 highlighter: pygments
 markdown:    kramdown

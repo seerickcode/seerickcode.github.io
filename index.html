@@ -1,9 +1,13 @@
 ---
 layout: post-index
-title: "Welcome to the Neo-HPSTR Blog"
+title: Latest Posts
 description: "Describe this nonsense."
 tags: [Jekyll, theme, themes, responsive, blog, modern]
 comments: false
+image:
+  feature: abstract-1.jpg
+  credit: dargadgetz
+  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---
 
 {% for post in paginator.posts %}
@@ -31,11 +35,7 @@ comments: false
     {% endif %}
   </header>
   <div class="entry-content">
-    {% if post.content contains "<!-- more -->" %}
-    {{ post.content | split:"<!-- more -->" | first % }}
-    {% else %}
-      {{ post.content }}
-    {% endif %}
+    {{ post.content }}
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 {% endfor %}

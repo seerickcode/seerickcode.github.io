@@ -5,7 +5,7 @@ categories: saltstack
 description: Spreading some dynamic goodness into the top.sls state file
 tags: [saltstack pillar jinja grains myway]
 share: true
-comments: false
+comments: true
 date: 2015-11-18T19:28:01-08:00
 ---
 

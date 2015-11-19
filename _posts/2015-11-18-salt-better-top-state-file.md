@@ -8,8 +8,9 @@ comments: false
 date: 2015-11-18T19:28:01-05:00
 ---
 
-# Spreading some dynamic goodness into the top.sls state file
-## In search of a a better top.sls file. 
+## Spreading some dynamic goodness into the top.sls state file
+
+### In search of a a better top.sls file. 
 
 I have my code in all my states in separate formulas each with a separate file_root, and /salt/* files.  
 I have all my data in a separate pillar layout.  Things are working good.
@@ -115,12 +116,14 @@ if I can avoid it - That is part of my code, not my config.
 We're going to use some jinja goodness to build what we want.
 
 {% highlight yaml linenos %}
+{% raw %}
   {% set roles = salt['grains.get']('roles',[]) -%}
   {% for role in roles -%}
   'roles:{{ role }}':
     - match: grain
     - {{ role }}
   {% endfor -%}
+{% endraw %}
 {% endhighlight %}
 
 Broken down we have:
@@ -131,7 +134,8 @@ Broken down we have:
 * Line 5 : end the for loop
 
 So, this is my full top.sls now
-```
+{% highlight yaml linenos %}
+{% raw %}
 base:
   '*':
     - default
@@ -144,17 +148,19 @@ base:
     - match: grain
     - {{ role }}
   {% endfor -%}
+{% endraw %}
+{% endhighlight %}
 
-```
+### On the minion
+Give it a try
 
-
-Give it a try - **From the minion now**, :
 ```salt-call --log-level=debug state.show_highstate```
 
 You should see a massive load of debug data , but scroll through it, near the top, and you will see your top.sls
 file 
 
-```
+{% highlight yaml %}
+{% raw %}
 [DEBUG   ] Rendered data from file: /var/cache/salt/minion/files/base/top.sls:
 base:
   '*':
@@ -168,7 +174,8 @@ base:
   'roles:python':
     - match: grain
     - python
-```
+{% endraw %}
+{% endhighlight %}
 
 todo : Insert success meme here ! :)
 

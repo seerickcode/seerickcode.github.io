@@ -24,7 +24,7 @@ Let's dive in and see if we can get it doing what I want.
 <!--more-->
 
 An example of my current top.sls file (for me that is /srv/saltstack/salt/top.sls - a non-standard path [^1])
-{% highlight yaml linenos %}
+{% highlight salt linenos %}
 base:
   '*':
     - default
@@ -55,7 +55,7 @@ That file is placed there by your distro packages, and will usually be all comme
 default values.  I want to leave that as is, and override changes either in /etc/salt/minion.d/* files,
 or in this case, the purpose built /etc/salt/grains yaml file.
 
-{% highlight yaml linenos %}
+{% highlight salt linenos %}
 roles:
   - influxdb
   - python
@@ -68,7 +68,7 @@ We can check if that work buy using the grains.items function.  I will be doing 
 so I will use salt-call to invoke the function.  We can add filters to just fetch the roles grain, but
 let's just get them all, and you can scroll through the output.
 
-{% highlight yaml %}
+{% highlight salt %}
 # salt-call grains.items
 ....trimmed for size.....
     pythonversion:
@@ -110,7 +110,7 @@ kt-testminion-1.kerkhofftech.ca:
 So far, so good.  Now onto iterating it for config.
 
 What we want the top.sls to look like (for the role handling) is something like this :
-{% highlight yaml %}
+{% highlight salt %}
   'roles:influxdb':
     - match: grain
     - influxdb
@@ -123,7 +123,7 @@ and allows your state setup to be used at different sites, shared, etc.
 
 We're going to use some jinja template code to build what we want.
 
-{% highlight yaml linenos %}
+{% highlight salt linenos %}
 {% raw %}
   {% set roles = salt['grains.get']('roles',[]) -%}
   {% for role in roles -%}
@@ -142,7 +142,7 @@ Broken down we have:
 * Line 5 : end the for loop
 
 So, this is my full top.sls now
-{% highlight yaml linenos %}
+{% highlight salt linenos %}
 {% raw %}
 base:
   '*':
@@ -167,7 +167,7 @@ Give it a try
 You should see a massive load of debug data , but scroll through it, near the top, and you will see your top.sls
 file being generated
 
-{% highlight yaml %}
+{% highlight salt %}
 {% raw %}
 [DEBUG   ] Rendered data from file: /var/cache/salt/minion/files/base/top.sls:
 base:
@@ -187,7 +187,7 @@ base:
 
 todo : Insert success meme here ! :)
 
-Part 2 - What if the role 'name' doesn't match directly with the name of the single formula I want included ?  Also, 
+[Part 2](/saltstack-a-better-salt-top-sls-part-2) - What if the role 'name' doesn't match directly with the name of the single formula I want included ?  Also, 
 we're not going to just have one formula for a role, we want multiple formulas to be stuffed in here.  
 To the Pillar (insert name of comic book character based on the combination of a bat and a man) !
 

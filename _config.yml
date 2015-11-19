@@ -39,6 +39,7 @@ timezone:    America/New_York
 future:      true
 highlighter: pygments
 markdown:    kramdown
+excerpt_separator: <!--more-->
 gems:
   - jekyll-sitemap
 sass:
@@ -50,6 +51,7 @@ permalink:   /:categories/:title/
 
 # Amount of post to show on home page
 paginate: 5
+
 
 kramdown:
   auto_ids: true

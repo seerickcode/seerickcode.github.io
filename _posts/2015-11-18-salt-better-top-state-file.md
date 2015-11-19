@@ -4,6 +4,7 @@ layout: post
 categories: saltstack
 description: Spreading some dynamic goodness into the top.sls state file
 tags: [saltstack pillar jinja grains myway]
+share: true
 comments: false
 date: 2015-11-18T19:28:01-05:00
 ---
@@ -18,6 +19,8 @@ I have all my data in a separate pillar layout.  Things are working good.
 Now, I want to clean up the top.sls file so that I don't have to keep adding hostnames, and assigning the 'code' 
 package names to them.  This is a job for the grains, and some template/code work.  At least I think it is.
 Let's dive in and see if I can get it doing what I want.
+
+<!--more-->
 
 An example of my current top.sls file (for me that is /srv/saltstack/salt/top.sls - a non-standard path [^1])
 {% highlight yaml linenos %}

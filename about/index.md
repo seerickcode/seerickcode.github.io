@@ -9,6 +9,12 @@ comments: false
 modified: 2015-11-14
 ---
 
+### Need help getting your infrastructure up and working smoothly ?
+
+### Reach out to me at Kerkhoff Technologies, and we can get you sorted out !
+
+[![Kerkhoff Technologies Inc.][kerkhoff]](https://www.kerkhofftech.ca/services/linux-support-consulting/ "Kerkhoff Technologies Inc.")
+
 From hand optimized assembly programming for embedded micro controllers, to operations architecture, to graphic arts.  I have worked professionally in many roles of the IT industry.  I feel I am a jack in all trades, and a master in whatever I have been working on for the past month.  Many things overlap, and knowledge and technology from one branch can be brought into others to bring unique solutions to some of the cooler problems.
 
 ## What I can bring to the table:
@@ -18,3 +24,5 @@ From hand optimized assembly programming for embedded micro controllers, to oper
 * Experience teaching technology to all ages and backgrounds has givin me the skills to expain technical problems and solutions to those not in the field.
 * Pride in finding technically elegant and simple solutions.
 * Ability to sometimes make people laugh so hard they can't breathe
+
+[kerkhoff]: https://d335hnnegk3szv.cloudfront.net/wp-content/uploads/sites/559/2014/06/logo.png

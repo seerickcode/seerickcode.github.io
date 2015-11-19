@@ -13,11 +13,12 @@ date: 2015-11-18T19:28:01-08:00
 
 ### In search of a a better top.sls file. 
 
-I have my code in all my states in separate formulas each with a separate file_root, and /salt/* files.  
-I have all my data in a separate pillar layout.  Things are working good.
+I have my code in all my states in separate formulas each with a separate file_root, and /salt/* files. I have 
+all my data in a separate pillar layout.  Things are working good.
 
 Now, I want to clean up the top.sls file so that I don't have to keep adding hostnames, and assigning the 'code' 
 package names to them.  This is a job for the grains, and some template/code work.  At least I think it is.
+
 Let's dive in and see if we can get it doing what I want.
 
 <!--more-->
@@ -190,6 +191,14 @@ Part 2 - What if the role 'name' doesn't match directly with the name of the sin
 we're not going to just have one formula for a role, we want multiple formulas to be stuffed in here.  
 To the Pillar (insert name of comic book character based on the combination of a bat and a man) !
 
+___
+Need help getting your Salt / Dev Ops infrastructure up and working smoothly ?
+Reach out to me at Kerkhoff Technologies, and we can get you sorted out !
+
+[![Kerkhoff Technologies Inc.][kerkhoff]](https://www.kerkhofftech.ca/services/linux-support-consulting/ "Kerkhoff Technologies Inc.")
+
+
 
 [^1]: I hate how the standard Saltstack locations crap all over my /srv directory as if it owns it.  ie. /srv/formulas is a silly place for Salt Formulas.
+[kerkhoff]: https://d335hnnegk3szv.cloudfront.net/wp-content/uploads/sites/559/2014/06/logo.png
 

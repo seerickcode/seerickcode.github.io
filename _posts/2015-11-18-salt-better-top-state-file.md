@@ -1,12 +1,12 @@
 ---
-title: SaltStack - A better salt/top.sls
+title: SaltStack - A better salt/top.sls - Part 1
 layout: post
 categories: saltstack
 description: Spreading some dynamic goodness into the top.sls state file
 tags: [saltstack pillar jinja grains myway]
 share: true
 comments: false
-date: 2015-11-18T19:28:01-05:00
+date: 2015-11-18T19:28:01-08:00
 ---
 
 ## Spreading some dynamic goodness into the top.sls state file
@@ -18,7 +18,7 @@ I have all my data in a separate pillar layout.  Things are working good.
 
 Now, I want to clean up the top.sls file so that I don't have to keep adding hostnames, and assigning the 'code' 
 package names to them.  This is a job for the grains, and some template/code work.  At least I think it is.
-Let's dive in and see if I can get it doing what I want.
+Let's dive in and see if we can get it doing what I want.
 
 <!--more-->
 
@@ -41,18 +41,18 @@ If if the hostname has monitor in it, then likewise, grafana and shinken come in
 
 What I want to be able to do is set some grains, and have this all changed up dynamically instead
 of being based on host names.  Even better if the list of code that gets shoved in is actally pulled from
-pillar data somewhere !
+pillar data somewhere, that's for the next post.
 
-Let's start with the grain setup.  Bit of a chicken and egg problem since we need to have the grains setup 
+First, the grain setup.  Bit of a chicken and egg problem since we need to have the grains setup 
 on the minion before we run salt.  Down the road, other systems could be used to inject the 
-grains (cloud-init, etc.) but for now we will just manually set them up.  This would be on the fresh 
+grains (cloud-init, etc.) but for now we will just manually set them up.  This will be on the fresh 
 instance, after salt-minion is installed, but before the first salt-call.
 
 ### On the minion
 I am going to put them in /etc/salt/grains instead of the salt minion main config file (/etc/salt/minion).  
-That file is placed there by the your distro packages, and has sane defaults in it.  I want to leave that
-as is, and override changes either in /etc/salt/minion.d/* files, or in this case, the purpose built 
-/etc/salt/grains yaml file.
+That file is placed there by your distro packages, and will usually be all commented out, and showing the 
+default values.  I want to leave that as is, and override changes either in /etc/salt/minion.d/* files,
+or in this case, the purpose built /etc/salt/grains yaml file.
 
 {% highlight yaml linenos %}
 roles:
@@ -60,10 +60,12 @@ roles:
   - python
 {% endhighlight %}
 
-This will build a grain 'roles' that has an array of values.  I want to be able to have a few roles so 
-I am going to start right out to the gate with an array, and make that work.  
+This will build a static grain called 'roles' that has an array of values.  I want to be able to have a 
+few roles so I am going to start right out to the gate with an array, and make that work.  
 
-Let's see if that worked (from the 
+We can check if that work buy using the grains.items function.  I will be doing this from the minion,
+so I will use salt-call to invoke the function.  We can add filters to just fetch the roles grain, but
+let's just get them all, and you can scroll through the output.
 
 {% highlight yaml %}
 # salt-call grains.items
@@ -113,10 +115,12 @@ What we want the top.sls to look like (for the role handling) is something like 
     - influxdb
 {% endhighlight %}
 
-But we don't want to have to write this over and over - I don't want to have to touch the top.sls 
-if I can avoid it - That is part of my code, not my config.
+But we don't want to have to write this over and overi for every role.  In fact, I want to touch this
+top.sls file as little as possible over its lifetime, and only to change its operation, not configuration.
+The state files are part of my 'code' not my 'data'.  Keeping them separate will help in the long run
+and allows your state setup to be used at different sites, shared, etc.
 
-We're going to use some jinja goodness to build what we want.
+We're going to use some jinja template code to build what we want.
 
 {% highlight yaml linenos %}
 {% raw %}
@@ -160,7 +164,7 @@ Give it a try
 ```salt-call --log-level=debug state.show_highstate```
 
 You should see a massive load of debug data , but scroll through it, near the top, and you will see your top.sls
-file 
+file being generated
 
 {% highlight yaml %}
 {% raw %}
@@ -182,8 +186,9 @@ base:
 
 todo : Insert success meme here ! :)
 
-Part 2 - What if the role doesn't match directly with a single formula I want included ?  What if I want
-multiple formulas to be stuffed in here ? To the Pillar Batman!
+Part 2 - What if the role 'name' doesn't match directly with the name of the single formula I want included ?  Also, 
+we're not going to just have one formula for a role, we want multiple formulas to be stuffed in here.  
+To the Pillar (insert name of comic book character based on the combination of a bat and a man) !
 
 
 [^1]: I hate how the standard Saltstack locations crap all over my /srv directory as if it owns it.  ie. /srv/formulas is a silly place for Salt Formulas.

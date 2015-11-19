@@ -4,12 +4,21 @@ title: M/M Series - InfluxDB
 modified:
 categories: 
 description:
-tags: []
+tags: [influxdb metrics monitoring]
 image:
   feature:
   credit:
   creditlink:
 comments:
 share:
-date: 2015-11-14T14:20:42-05:00
 ---
+
+InfluxDB
+Quote about
+Been using it
+What it will feed
+Link
+Install
+Docker containers for my test - link Base-Image 
+
+

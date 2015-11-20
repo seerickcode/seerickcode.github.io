@@ -35,7 +35,7 @@ google_verify: DoWvgcfd3tqEZWWbn64xX6E26HHJFJOXVwR3MdOHRi4
 bing_verify:         
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
+timezone:    America/Vancouver
 future:      true
 highlighter: pygments
 markdown:    kramdown

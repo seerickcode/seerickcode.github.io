@@ -196,9 +196,6 @@ Need help getting your Salt / Dev Ops infrastructure up and working smoothly ?
 Reach out to me at Kerkhoff Technologies, and we can get you sorted out !
 
 [![Kerkhoff Technologies Inc.][kerkhoff]](https://www.kerkhofftech.ca/services/linux-support-consulting/ "Kerkhoff Technologies Inc.")
-
-
-
 [^1]: I hate how the standard Saltstack locations crap all over my /srv directory as if it owns it.  ie. /srv/formulas is a silly place for Salt Formulas.
 [kerkhoff]: https://d335hnnegk3szv.cloudfront.net/wp-content/uploads/sites/559/2014/06/logo.png
 

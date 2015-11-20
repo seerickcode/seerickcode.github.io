@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SaltStack - A better salt/top.sls - Part 2
+date: 2015-11-19T19:41:03-08:00
 modified:
 categories: 
 description:
@@ -11,10 +12,9 @@ image:
   creditlink:
 comments:
 share:
-date: 2015-11-19T17:33:33-08:00
 ---
 
-## Dynamic goodness into the top.sls state file
+## More dynamic goodness into the top.sls state file
 
 ### In search of a a better top.sls file. 
 
@@ -50,6 +50,9 @@ Lets work with the 'monitor' server name this time, and convert that into a role
 called 'monitor', just the grafana and shinken states (I have salt formulas setup for grafana and shinken).
 
 Here is the pillar data I will be using to feed in the states.
+
+_/srv/saltstack/pillar/roles/monitor/init.sls_
+
 {% highlight salt linenos %}
 {% raw %}
 #!yamlex
@@ -65,6 +68,7 @@ states: !aggregate
 {% endhighlight %}
 
 I better explain a bit about the contents.  
+
 First, this file is in /srv/saltstack/pillar/roles/monitor/init.sls on my installation.  My pillar_root
 is set to /srv/saltstack/pillar.  This is not standard, but /srv is not dedicated to salt, and /srv/pillar 
 is not contained enough for my likes. 
@@ -75,7 +79,7 @@ and I have grown used to being able to have that functionality.  I will make a b
 - _Line 2-4_ : I bring in /srv/saltstack/pillar/grafana/init.sls and /srv/saltstack/pillar/shinken/init.sls
 These contain pillar data that is used to configure those states.
 - _Line 6-9_ : This is where I define the array to store the states I want to bring into the salt/top.sls file.  The 
-pillar lookup path for these will be [states.monitor] 
+pillar lookup path for these will be [states:monitor] 
 
 ### Adding code to top.sls to bring in the pillar data 
 
@@ -104,9 +108,9 @@ base:
 I have changed up the 'code' section for the roles.
 
 - _Line 7-8_   : No change from before
-- _Line 9_     : We use pillar.get all to bring in the pillar data 'states:ROLE' where ROLE is 
+- _Line 9_     : We use pillar.get to bring in the pillar data 'states:_ROLE_' where _ROLE_ is 
 replace with the variable from the for loop.
-- _Line 10_    : If there the list is empty, do nothing
+- _Line 10_    : If the list is empty, do nothing
 - _Line 11-12_ : Build the normal top.sls notation to match a grain
 - _Line 13-15_ : Loop through all the states listed in the pillar data and place them down
 
@@ -126,7 +130,7 @@ roles:
 
 ``salt-call --log-level=debug state.show_highstate``
 
-A few lines down in the spam of debug logging (while we are learning, the more verbose the better) :
+A few lines down in the spam of debug logging (while testing/developing, the more verbose, the better) :
 {% highlight salt linenos %}
 {% raw %}
 ....
@@ -148,10 +152,11 @@ base:
 
 Humm.  Well, that didn't work.  I expected to see a ``roles:monitor`` entry at the end.
 
-Why don't I ?  
+Why didn't it ?
 
-Well, we have not changed the Pillar top.sls!  It also needs some of this magic
-so that it includes the pillar data that we setup for the states.  Below I will do that.
+Well, we have fixed the salt/top.sls, but we have get to change the pillar/top.sls to actually include 
+that data in that /srv/saltstack/pillar/roles/monitor/init.sls file from earlier.
+We will take care of that next.
 
 ### Back to the master to fix pillar/top.sls
 
@@ -175,7 +180,7 @@ base:
 Remember, this is the pillar/top.sls - It is _NOT_ the salt/top.sls.  
 
 Similar to salt/top.sls, the pillar/top.sls brings in the other files under pillar/ as directed.
-We will use the same kind of loop iteration that we se for the salt/top.sls.  
+We will use the same kind of loop iteration that we used for the salt/top.sls.  
 
 We load up the grains , and loop through to build what we want.
 
@@ -217,10 +222,9 @@ base:
 {% endhighlight %}
 
 This would cause the ``/srv/pillar/roles/monitor/init.sls`` file to be loaded in to the pillar data.
+In that file, is the states:monitor yaml list.
 
-From the top of the article, we can see where we added the states.monitor list into this file.
-
-Now when the salt/top.sls is generated, it will loop through the listed states under each role key.
+Now when the _salt/top.sls_ is generated, each item in that list is placed down.
 
 Try the salt.show_highstate call again
 
@@ -304,5 +308,16 @@ More /srv/saltstack/pillar/roles/{ROLENAME}/init.sls files will need be be creat
 
 We now have top.sls files that we don't need to touch to be able to handle all kinds of different states or 
 pillar data.  We are not changing the 'code' just the data in the pillar.
+
+___
+Need help getting your Salt / Dev Ops infrastructure up and working smoothly ?
+Reach out to me at Kerkhoff Technologies, and we can get you sorted out !
+
+[![Kerkhoff Technologies Inc.][kerkhoff]](https://www.kerkhofftech.ca/services/linux-support-consulting/ "Kerkhoff Technologies Inc.")
+
+
+
+[^1]: I hate how the standard Saltstack locations crap all over my /srv directory as if it owns it.  ie. /srv/formulas is a silly place for Salt Formulas.
+[kerkhoff]: https://d335hnnegk3szv.cloudfront.net/wp-content/uploads/sites/559/2014/06/logo.png
 
 

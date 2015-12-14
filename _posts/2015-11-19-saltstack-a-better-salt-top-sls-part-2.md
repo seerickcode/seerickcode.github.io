@@ -2,16 +2,12 @@
 layout: post
 title: SaltStack - A better salt/top.sls - Part 2
 date: 2015-11-19T19:41:03-08:00
-modified:
-categories: 
+modified: 
+categories: devops saltstack 
 description:
-tags: []
-image:
-  feature:
-  credit:
-  creditlink:
-comments:
-share:
+tags: [saltstack jinja]
+comments: true
+share: true
 ---
 
 ## More dynamic goodness into the top.sls state file

@@ -1,6 +1,6 @@
-title:            See Dick Code
+title:            See Rick Code
 description:      Stuff I Do - Dev / Ops
-disqus_shortname: seedickcode
+disqus_shortname: seerickcode
 reading_time:     true
 words_per_minute: 200
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
@@ -12,11 +12,11 @@ owner:
   name:           Richard Clark
   avatar:         avatar.jpg
   bio:            "Works with computers. Software Development and Operations Architechture. Jack of All, Master of whatever I have been working on the past two weeks."
-  email:          dude@seedickcode.com
+  email:          rick@seerickcode.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        seedickcode
+  twitter:        seerickcode
   facebook:       
-  github:         seedickcode 
+  github:         seerickcode 
   stackexchange:  
   linkedin:       
   instagram:      
